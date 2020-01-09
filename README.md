@@ -1,3 +1,4 @@
-# ELS - Enterprise Linux/EuroLinux Sources - gnome-themes 
+# ELS - Enterprise Linux/EuroLinux Sources - gnome-themes
+ 
 ## Usage:
-  Checkout branch or tag.
+  Checkout branch or tag. Use `make sources` to recreate  SOURCE0 archive.
