@@ -1,7 +1,7 @@
 Summary: Themes for GNOME
 Name: gnome-themes
 Version: 2.28.1
-Release: 6%{?dist}
+Release: 7%{?dist}
 URL: http://download.gnome.org/sources/gnome-themes/
 Source: http://download.gnome.org/sources/gnome-themes/2.28/%{name}-%{version}.tar.bz2
 # Icons done by Andreas Nilsson for http://live.gnome.org/GnomeArt/ArtRequests/issue26
@@ -11,6 +11,8 @@ Source10: slider-metacity.tar
 # https://bugzilla.gnome.org/show_bug.cgi?id=614343
 Patch0: indic-titlebars.patch
 Patch10: slider-theme.patch
+# https://bugzilla.redhat.com/show_bug.cgi?id=673749
+Patch11: gnome-themes-2.28.1-EL6.8_translations.patch
 License: LGPLv2 and GPLv2
 Group: User Interface/Desktops
 BuildArch: noarch
@@ -39,6 +41,7 @@ borders, cursors, etc.
 %setup -q
 %patch0 -p1 -b .indic-titlebars
 %patch10 -p1 -b .slider-theme
+%patch11 -p1 -b .traslations-6.8
 find . -exec touch \{\} \;
 
 tar xf %{SOURCE10}
@@ -112,6 +115,11 @@ done
 %doc AUTHORS COPYING NEWS README
 
 %changelog
+* Wed Mar 09 2016 Ray Strode <rstrode@redhat.com> - 2.28.1-7
+- Add patch from Noriki Mizumoto <noriko@redhat.com> to
+  increase translation coverage
+  Resolves: #673749
+
 * Tue Jul 13 2010 Jon McCann <jmccann@redhat.com> 2.28.1-6
 - Add a Slider theme from Jakub Steiner
   Resolves: #611864
